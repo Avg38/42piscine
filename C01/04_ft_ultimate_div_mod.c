@@ -1,24 +1,20 @@
-//42
-//04_ultimate_div_mod
-//Cette fonction divise les int pointés par a et b.
-// Le résultat de la division est stocké dans l’int pointé par a.
-// Le résultat du reste de la division est stocké dans l’int pointé par b
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_utlimate_div_mod.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <stdio.h>
+void	ft_ultimate_div_mod(int *a, int *b)
+{
+	int	temp;
 
-void    ft_ultimate_div_mod(int *a,int *b){
-    int c;
-    c = *a / *b;
-    *b = *a % *b;
-    *a = c;
-}
-
-int main(){
-    int a;
-    a = 27;
-    int b;
-    b = 5;
-    ft_ultimate_div_mod(&a,&b);
-    printf("a/b = %d et le reste = %d",a,b);
-    return 0;
+	temp = *a / *b;
+	*b = *a % *b;
+	*a = temp;
 }
