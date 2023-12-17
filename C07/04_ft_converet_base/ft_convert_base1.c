@@ -13,7 +13,7 @@
 #include <stdlib.h>
 
 int	ft_strlen(char *str);
-int	ft_nlen(int n, int lb);
+int	ft_nlen(long long n, int lb);
 int	check_base(char *b, int lb);
 int	ft_pow(int nb, int power);
 int	char_in_base(char c, char *b);
