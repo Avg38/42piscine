@@ -1,35 +1,35 @@
-// 42
-// 09_ft_strcapitalize
-// Reproduire à l’identique le fonctionnement de la fonction strlcpy (man strlcpy).
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-unsigned int ft_strlcpy(char *dest, char *src, unsigned int size){
-    int i;
-    i = 0;
-    int len;
-    len = 0;
-    while (src[len]!='\0'){
-        len++;
-    }
-    while (i<size){
-        dest[i] = src[i];
-        i++;
-    }
-    i--;
-    dest[i] = '\0';
-    return len;
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int main(){
-    char dest[6];
-    char src[7] = "Ozanam";
-    unsigned int size = 6;
-    int i = 0;
-    unsigned int res = ft_strlcpy(dest,src,size);
-    printf("%d\n",res);
-    while (dest[i]!='\0'){
-        printf("%c",dest[i]);
-        i++;
-    }  
-    return 0;
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+{
+	unsigned int	i;
+
+	if (!size)
+		return (ft_strlen(src));
+	i = -1;
+	while (++i < size - 1 && src[i])
+		dest[i] = src[i];
+	while (i < size)
+		dest[i++] = '\0';
+	return (ft_strlen(src));
 }
