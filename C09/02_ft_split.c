@@ -23,16 +23,16 @@ int	is_sep(char letter, char *sep)
 	return (0);
 }
 
-void	count_word(char *str, char *sep, int *i)
+void	count_word(char *str, char *sep, int *count)
 {
-	int	j;
+	int	i;
 
-	j = -1;
-	while (str[++j])
+	i = -1;
+	while (str[++i])
 	{
-		if (is_sep(str[j], sep) == 0 
-			&& ((j <= 0) || is_sep(str[j - 1], sep) == 1))
-			*i += 1;
+		if (is_sep(str[i], sep) == 0 
+			&& ((i <= 0) || is_sep(str[i - 1], sep) == 1))
+			*count += 1;
 	}
 }
 
@@ -74,7 +74,7 @@ char	**put_word(char **split, char *str, char *sep, int count)
 		}
 	}
 	if (count > 0)
-		split[j++] = word_dup(str, start, i);
+		split[j] = word_dup(str, start, i);
 	return (split);
 }
 

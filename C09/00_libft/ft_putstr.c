@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_range.c                                         :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avg38                                    +#+  +:+       +#+          */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <unistd.h>
 
-int	*ft_range(int min, int max)
+void ft_putchar(char c)
 {
-	int	*tab;
-	int	i;
+	write(1, &c, 1);
+}
 
-	if (min >= max)
-		return (NULL);
-	tab = (int *) malloc((sizeof(int) * (max - min)));
-	if (!tab)
-		return (NULL);
+void ft_putstr(char *str)
+{
+	int i;
 	i = 0;
-	while (min < max)
+	while(str[i])
 	{
-		tab[i] = min;
-		min++;
+		ft_putchar(str[i]);
 		i++;
 	}
-	return (tab);
 }

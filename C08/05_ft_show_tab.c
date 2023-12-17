@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_show_tab.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avg38                                    +#+  +:+       +#+          */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,73 +10,53 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *str)
-{
-	int	i;
+#include "ft_stock_str.h"
+#include <unistd.h>
 
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-int	ft_nlen(long long n, int lb)
-{
-	long long	i;
-
-	i = 0;
-	if (n == 0)
-		return (1);
-	while (n > 0)
-	{
-		n /= lb;
-		i++;
-	}
-	return (i);
-}
-
-int	check_base(char *b, int lb)
-{
-	int	i;
-	int	j;
-
-	if (lb < 2)
-		return (1);
-	i = 0;
-	while (b[i])
-	{
-		j = 0;
-		while (b[j])
-		{
-			if ((b[i] == b[j] && i != j) 
-				|| b[j] == '+' || b[j] == '-'
-				|| !(b[i] >= 32 && b[i] <= 126))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-int	ft_pow(int nb, int power)
-{
-	if (power < 0)
-		return (0);
-	if (power == 0)
-		return (1);
-	if (power == 1)
-		return (nb);
-	return (nb * ft_pow(nb, power - 1));
-}
-
-int	char_in_base(char c, char *b)
+void	ft_putstr(char *str)
 {
 	int	i;
 
 	i = -1;
-	while (b[++i])
-		if (b[i] == c)
-			return (1);
-	return (0);
+	while (str[++i])
+		ft_putchar(str[i]);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb == -2147483648)
+		write(1, "-2147483648", 11);
+	else if (nb < 0)
+	{
+		write(1, "-", 1);
+		ft_putnbr(-nb);
+	}
+	else if (nb <= 9)
+		ft_putchar(nb + 48);
+	else
+	{
+		ft_putnbr(nb / 10);
+		ft_putnbr(nb % 10);
+	}
+}
+
+void	ft_show_tab(struct s_stock_str *par)
+{
+	int	i;
+
+	i = -1;
+	while (par[++i].str != 0)
+	{
+		ft_putstr(par[i].str);
+		write(1, "\n", 1);
+		ft_putnbr(par[i].size);
+		write(1, "\n", 1);
+		ft_putstr(par[i].copy);
+		write(1, "\n", 1);
+	}
 }
