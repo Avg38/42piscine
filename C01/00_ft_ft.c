@@ -1,15 +1,16 @@
-//42
-//00_ft_ft
-// Écrire une fonction qui prend un pointeur sur int en paramètre et donne à l’int la valeur de 42.
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ft.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    ft_ft(int *nbr){
-    *nbr = 42;
-}
-
-int main(){
-    int nbr;
-    ft_ft(&nbr);
-    printf("%d",nbr);
-    return 0;
+void	ft_ft(int *nbr)
+{
+	*nbr = 42;
 }
