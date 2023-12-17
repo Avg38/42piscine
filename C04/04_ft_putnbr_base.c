@@ -9,71 +9,66 @@
 /*   Updated: 2019/08/04 19:23:04 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <unistd.h>
 
-void ft_putchar(char c){
-    write(1,&c,1);
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
 
-int ft_strlen(char *str){
-    int i;
-    i = 0;
-    while (str[i]!='\0')
-        i++;
-    return i--;
+int	ft_strlen(char *str)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-void ft_change_base(int nbr, int lenBase, char *base){
-    int a;
-    if(nbr<0){
-        write(1,"-",1);
-        nbr = -nbr;
-    }
-    if(nbr >= lenBase)
-        ft_change_base(nbr/lenBase, lenBase,base);
-    ft_putchar(base[nbr%lenBase]);
+void	run(unsigned int nbr, char *base, unsigned int lb)
+{
+	if (nbr >= lb)
+	{
+		run(nbr / lb, base, lb);
+	}
+	ft_putchar(base[nbr % lb]);
 }
 
-int ft_verif(int lenBase,char *base){
-    int i; 
-    i = 0;
-    int j; 
-    j = 0;
-    int doublon; 
-    doublon = 0;
-    if(lenBase <= 1)
-        return 0;
-    while (base[i]!='\0'){
-        if (base[i] == '+' || base[i] == '-')
-            return 0;
-        while (base[j]!='\0'){
-            if (base[j] == base[i])
-                doublon++;
-            j++;
-        }
-        if (doublon > 1)
-            return 0;
-        doublon = 0;
-        j = 0;
-        i++;
-    }
-    return 1;
+int	verif(char *b, int lb)
+{
+	int	i;
+	int	j;
+
+	if (lb < 2)
+		return (1);
+	i = 0;
+	while (b[i])
+	{
+		j = 0;
+		while (b[j])
+		{
+			if ((b[i] == b[j] && i != j) || b[j] == '+' || b[j] == '-')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
-void ft_putnbr_base(int nbr, char *base){
-    int lenBase;
-    lenBase = ft_strlen(base);
-    if ((ft_verif(lenBase,base)) == 0)
-        write(1,"",1);
-    else
-        ft_change_base(nbr,lenBase,base);
-}
+void	ft_putnbr_base(int nbr, char *base)
+{
+	unsigned int	nb;
 
-
-int main(){
-    char base[20] = "0123456789ABCDEF";
-    int nbr = 2374;
-    ft_putnbr_base(nbr,base);
-    return 0;
+	if (verif(base, ft_strlen(base)) == 1)
+		return ;
+	if (nbr < 0)
+	{
+		ft_putchar('-');
+		nbr *= -1;
+	}
+	nb = nbr;
+	run(nb, base, ft_strlen(base));
 }
