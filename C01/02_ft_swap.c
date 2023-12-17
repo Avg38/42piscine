@@ -1,21 +1,20 @@
-//42
-//02_ft_swap
-// Écrire une fonction qui échange le contenu de deux entiers dont les adresses sont données en paramètres.
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void    ft_swap(int *a, int *b){
-    int c; 
-    c = *a;
-    *a = *b;
-    *b = c;
-}
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
 
-int main(){
-    int a;
-    int b;
-    a = 3;
-    b = 5;
-    ft_swap(&a,&b);
-    printf("a=%d,b=%d",a,b);
-    return 0;
+	temp = *a;
+	*a = *b;
+	*b = temp;
 }
