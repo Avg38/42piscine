@@ -1,33 +1,30 @@
-// 42
-// 03_ft_strncat
-// Reproduire à l’identique le fonctionnement de la fonction strcat (man strnncat).
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strncat(char *dest, char *src, unsigned int nb){
-    int i;
-    int j;
-    i = 1;
-    j = 0;
-    while (dest[i-1]!='\0'){
-        if ((dest[i] =='\0') && (j < nb)){
-            dest[i] = src[j];
-            j++;
-        }
-        i++;
-    }
-    dest[i] = '\0';
-    return dest;
-}
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int	i;
+	unsigned int	j;
 
-int main(){
-    char dest[100] = "Je suis";
-    char src[100] = " trop intelligente !";
-    int nb = 5;
-    int i = 0;
-    ft_strncat(dest,src,nb);
-    while(dest[i]!='\0'){
-        printf("%c",dest[i]);
-        i++;
-    }
-    return 0;
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j] && j < nb)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = '\0';
+	return (dest);
 }
