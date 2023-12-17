@@ -1,19 +1,25 @@
-//42
-//02_ft_print_reverse_alphabet
-// Écrire une fonction qui affiche l’alphabet en minuscule sur une seule ligne, dans l’ordre décroissant, à partir de la lettre ’z’.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_reverse_alphabet.c                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <unistd.h>
 
-void ft_print_reverse_alphabet(){
-    int c;
-    c=122;
-    while(c>=97){
-        write(1, &c, 1);
-        c--;
-    }
-}
+void	ft_print_reverse_alphabet(void)
+{
+	char	c;
 
-int main(){
-    ft_print_comb2();
-    return 0;
+	c = 'z';
+	while (c >= 'a')
+	{
+		write(1, &c, 1);
+		c--;
+	}
 }
