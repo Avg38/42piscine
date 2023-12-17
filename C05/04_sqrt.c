@@ -9,24 +9,19 @@
 /*   Updated: 2023/07/04 19:23:04 by avg38            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <unistd.h>
 
-int ft_sqrt(int nb){
-    int i;
+int	ft_sqrt(int nb)
+{
+	int	i;
 
-    i = 1;
-
-    while (i<nb){
-        if (i*i == nb)
-            return i;
-        i++;
-    }
-    return 0;
-}
-
-int  main(){
-    int res = ft_sqrt(0);
-    printf("%d",res);
-    return 0;
+	i = 1;
+	if (nb == 1)
+		return (1);
+	while (i <= nb / 2 && i < 46341)
+	{
+		if (i * i == nb)
+			return (i);
+		i++;
+	}
+	return (0);
 }
