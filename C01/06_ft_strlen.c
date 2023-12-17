@@ -1,22 +1,23 @@
-//42
-//06_ft_strlen
-// Écrire une fonction qui compte le nombre de caractères dans une chaîne de caractères et qui retourne le nombre trouvé.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
+int	ft_strlen(char *str)
+{
+	int	i;
 
-int ft_strlen(char *str){
-    int i;
-    i = 0;
-    while(str[i]!='\0'){
-        i++;
-    }
-    return i;
-}
-
-int main(){
-    char str[100] = "Ozan";
-    int i = ft_strlen(str);
-    printf("\n%d",i);
-    return 0; 
+	i = 0;
+	while (*str++ != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
