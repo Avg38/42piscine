@@ -1,18 +1,25 @@
-//42
-//03_ft_print_numbers
-// Écrire une fonction qui affiche tous les chiffres sur une seule ligne, dans l’ordre croissant.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_numbers.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_print_numbers(){
-    char c;
-    c = '0';
-    while(c<='9'){
-        write(1, &c, 1);
-        c++;
-    }
-}         
+void	ft_print_numbers(void)
+{
+	char	n;
 
-int main(){
-    ft_print_comb2();
-    return 0;
+	n = 48;
+	while (n <= 57)
+	{
+		write(1, &n, 1);
+		n++;
+	}
 }
