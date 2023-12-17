@@ -1,19 +1,25 @@
-//42
-//01_ft_print_alphabet
-// Écrire une fonction qui affiche l’alphabet en minuscule sur une seule ligne, dans l’ordre croissant, à partir de la lettre ’a’
-#include<unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void ft_print_alphabet(){
-    int c;
-    c=97;
-    while(c<=122){
-        write(1, &c, 1);
-        c++;
-    }
-    
-};
+#include <unistd.h>
 
-int main(){
-    ft_print_comb2();
-    return 0;
+void	ft_print_alphabet(void)
+{
+	char	c;
+
+	c = 97;
+	while (c <= 122)
+	{
+		write(1, &c, 1);
+		c++;
+	}
 }
