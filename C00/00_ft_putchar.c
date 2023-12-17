@@ -1,13 +1,18 @@
-//42
-//00_ft_putchar
-// Écrire une fonction qui affiche le caractère passé en paramètre
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_putchar(char c){
-    write(1, &c, 1);
-};
-
-int main(){
-    ft_putchar('L');
-    return 0;
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
