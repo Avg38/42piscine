@@ -1,23 +1,25 @@
-//42
-//05_ft_putstr
-// Écrire une fonction qui affiche une chaine de caractères à l’écran.
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void    ft_putchar(int c){
-    write(1,&c,1);
-}
+void	ft_putstr(char *str)
+{
+	int	i;
 
-void    ft_putstr(char *str){
-    int i;
-    i = 0;
-    while(str[i]!='\0'){
-        ft_putchar(str[i]);
-        i++;
-    }
-}
-
-int main(){
-    char str[100] = "Ozan, je t'aime";
-    ft_putstr(str);
-    return 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }
