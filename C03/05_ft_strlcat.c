@@ -1,38 +1,50 @@
-// 42
-// 05_ft_strlcat
-// Reproduire à l’identique le fonctionnement de la fonction strlcat (man strlcat).
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+int	ft_strlen(char *str)
+{
+	int	i;
 
-
-unsigned int ft_strlcat(char *dest, char *src, unsigned int size){
-    int i;
-    i = 0;
-    int j;
-    j = 0;
-
-    while (i<size){
-        if (dest[i]=='\0'){
-            dest[i] = src[j]; 
-            j++;
-        }
-        i++;
-    }
-    dest[i] = '\0';
-    return i--;
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-int main(){
-    char dest[20] = "J'ai faim ";
-    char src[100] = "comme jamais";
-    unsigned int size = 19;
-    int i = 0; 
-    unsigned int resultat = ft_strlcat(dest,src,size);
-    printf("%d\n",resultat);
-    while (dest[i]!='\0'){
-        printf("%c",dest[i]);
-        i++;
-    }
-    
-    return 0;
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
+{
+	unsigned int	ldest;
+	unsigned int	lsrc;
+	unsigned int	tl;
+	unsigned int	i;
+	unsigned int	j;
+
+	ldest = ft_strlen(dest);
+	lsrc = ft_strlen(src);
+	tl = ldest + lsrc;
+	if (size == 0)
+		return (lsrc);
+	if (ldest >= size)
+		return (size + lsrc);
+	size -= ldest;
+	i = ldest;
+	j = 0;
+	while (src[j] && size > 1)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+		size--;
+	}
+	dest[i] = '\0';
+	return (tl);
 }
