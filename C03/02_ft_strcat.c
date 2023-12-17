@@ -1,31 +1,30 @@
-// 42
-// 02_ft_strcat
-// Reproduire à l’identique le fonctionnement de la fonction strcat (man strcat).
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strcat(char *dest, char *src){
-    int i;
-    i = 1;
-    int j;
-    j = 0;
-    while (dest[i-1]!='\0'){
-        if(dest[i]=='\0'){
-            dest[i] = src[j];
-            j++;
-        }
-    i++;
-    }
-    return dest;
-}
+char	*ft_strcat(char *dest, char *src)
+{
+	unsigned int	i;
+	unsigned int	j;
 
-int main(){
-    char dest[100] = "Je suis";
-    char src[100] = " trop intelligente !";
-    int i = 0;
-    ft_strcat(dest,src);
-    while(dest[i]!='\0'){
-        printf("%c",dest[i]);
-        i++;
-    }
-    return 0;
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j])
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+	}
+	dest[i] = &apos;\0&apos;;
+	return (dest);
 }
