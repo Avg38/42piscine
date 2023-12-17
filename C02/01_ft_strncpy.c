@@ -1,32 +1,26 @@
-//42
-//01_ft_strncpy
-// Reproduire à l’identique le fonctionnement de la fonction strncpy (man strncpy).
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char    *ft_strncpy(char *dest, char *src, unsigned int n){
-    int i;
-    i = 0;
-    n--;
-    while(i<=n){
-        dest[i] = src[i];
-        i++;
-    }
-    return dest;
-}
+char	*ft_strncpy(char *dest, char *src, unsigned int n)
+{
+	unsigned int	i;
 
-int main(){
-    char dest[10];
-    char src[100] = "J'aime la vie.";
-    unsigned int n;
-    n = 10;
-    int i = 0;
-    ft_strncpy(dest,src,n);
-    while(dest[i]!='\0'){
-        printf("%c",dest[i]);
-        i++;
-    }
-    i = 0;
-    
-    return 0;
+	i = 0;
+	while (i < n && src[i])
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	while (i < n)
+		dest[i++] = '\0';
+	return (dest);
 }
