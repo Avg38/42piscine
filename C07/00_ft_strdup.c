@@ -9,30 +9,35 @@
 /*   Updated: 2023/07/11 19:23:04 by avg38            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
-#include <unistd.h>
+
 #include <stdlib.h>
 
-int strlen(char *str){
-    int i;
-    i = 0;
-    while (str[i]!='\0')
-        i++;
-    return i;
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }
 
-char *ft_strdup(char *src){
-    size_t len;
-    char *dest = NULL;
-    len = strlen(src);
-    dest = (char *)malloc(len);
-    printf("%d",&dest);
-    return &dest;
-}
+char	*ft_strdup(char *src)
+{
+	int		l;
+	int		i;
+	char	*mystring;
 
-int main(){
-    char src[100] = "Je suis heureuse";
-    ft_strdup(src);
-    return 0;
+	l = ft_strlen(src);
+	mystring = (char *) malloc((l + 1) * sizeof(char));
+	if (mystring == NULL)
+		return (NULL);
+	i = 0;
+	while (src[i])
+	{
+		mystring[i] = src[i];
+		i++;
+	}
+	mystring[i] = '\0';
+	return (mystring);
 }
-
