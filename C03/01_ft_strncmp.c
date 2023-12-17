@@ -1,29 +1,23 @@
-// 42
-// 00_ft_strncmp
-// Reproduire à l’identique le fonctionnement de la fonction strncmp (man strncmp).
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp     .c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strncmp(char *s1, char *s2, unsigned int n){
-    int i;
-    int c1;
-    int c2;
-    c1 = 0;
-    c2 = 0;
-    i = 0;
-    while (i<n){
-        c1 = s1[i] + c1;
-        c2 = s2[i] + c2;
-        i++;
-    }
-    return c1-c2;
-    
-}
+int	ft_strncmp(char *s1, char *s2, unsigned int n)
+{
+	unsigned int	i;
 
-int main(){
-    char s1[100] = "ToToooo";
-    char s2[100] = "toto";
-    int n = 2;
-    int resultat = ft_strncmp(s1,s2,n);
-    printf("%d",resultat);
-    return 0;
+	i = 0;
+	if (n == 0)
+		return (0);
+	while (s1[i] && s1[i] == s2[i] && i < n - 1)
+		i++;
+	return (s1[i] - s2[i]);
 }
