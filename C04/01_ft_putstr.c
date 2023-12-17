@@ -9,21 +9,17 @@
 /*   Updated: 2019/08/04 19:23:04 by ybayart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <unistd.h>
 
-void    ft_putstr(char *str){
-    int i;
-    i = 0;
-    while (*str){
-        write(1,str,1);
-        str++;
-    }
+void    ft_putstr(char *str)
+{
+    int    i;
     
-}
-
-int main(){
-    char str[100] = "Je suis à la maison";
-    ft_putstr(str);    
-    return 0;
+    i = 0;
+    while (str[i])
+    {
+        write(1,&str[i],1);
+        i++;
+    }    
 }
