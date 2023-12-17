@@ -1,27 +1,25 @@
-// 42
-// 07_ft_strupcase
-// Écrire une fonction qui met en majuscule chaque lettre.
-// Elle devra renvoyer str.
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char *ft_strupcase(char *str){
-    int i;
-    i = 0;
-    while (str[i]!='\0'){
-        if(((str[i]>='a') && (str[i]<='z')))
-            str[i] = str[i]-32;
-        i++;
-    }
-    return str;
-}
+char	*ft_strupcase(char *str)
+{
+	int	i;
 
-int main(){
-    char str[100] = "je suis heureuse";
-    int i = 0;
-    ft_strupcase(str);
-    while (str[i]!='\0'){
-        printf("%c",str[i]);
-        i++;
-    }   
-    return 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+			str[i] = str[i] - 32;
+		i++;
+	}
+	return (str);
 }
