@@ -9,52 +9,71 @@
 /*   Updated: 2023/07/04 19:23:04 by avg38            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <stdio.h>
+
 #include <unistd.h>
+#include <stdio.h>
 
-int ft_putchar(char c){
-    write(1,&c,1);    
+void	ft_print(int *tab)
+{
+	int	i;
+
+	i = 0;
+	while (i < 10)
+	{
+		tab[i] += 48;
+		write(1, &tab[i], 1);
+		tab[i] -= 48;
+		i++;
+	}
+	write(1, "\n", 1);
 }
 
-int init(int *tab){
-    int i;
+int	ft_check_is_possible(int board[10], int x, int line)
+{
+	int	i;
 
-    i = 0;
-
-    while (i<=9){
-        tab[i] =  0;
-        ft_putchar(tab[i] + '0');
-        i++;
-    }
-    write(1,"\n",2);
+	i = 0;
+	while (i < x)
+	{
+		if (board[i] == line || (x - i == line - board[i]) 
+			|| (x - i == board[i] - line))
+			return (1);
+		i++;
+	}
+	return (0);
 }
 
-int run(int *tab){
-    int i;
-    int j;
+void	ft_run(int board[10], int x, int *counter)
+{
+	int	line;
 
-    i = 9;
-    j = 0;
-    while (i>=0){
-        while (j<=9)
-        {
-            tab[i] =  j;
-            ft_putchar(tab[i] + '0');
-            j++;
-        }
-        write(1,"\n",2);
-        i--; 
-    }
-    write(1,"\n",2);
+	if (x == 10)
+	{
+		*counter += 1;
+		ft_print(board);
+		return ;
+	}
+	line = 0;
+	while (line < 10)
+	{
+		board[x] = line;
+		if (ft_check_is_possible(board, x, line) == 0)
+		{
+			ft_run(board, x + 1, counter);
+		}
+		line++;
+	}
+	return ;
 }
 
-int ft_ten_queens_puzzle(void){
-    int tab[11];
-    init(tab);
-    run(tab);
-}
+int	ft_ten_queens_puzzle(void)
+{
+	int	board[10];
+	int	x;
+	int	counter;
 
-int main(){
-    ft_ten_queens_puzzle();
-    return 0;
+	x = 0;
+	counter = 0;
+	ft_run(board, x, &counter);
+	return (counter);
 }
