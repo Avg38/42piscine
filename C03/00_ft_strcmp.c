@@ -1,27 +1,21 @@
-// 42
-// 00_ft_strcmp
-// Reproduire à l’identique le fonctionnement de la fonction strcmp (man strcmp).
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avg38                                    +#+  +:+       +#+          */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/05 18:18:01 by avg38             #+#    #+#             */
+/*   Updated: 2023/07/05 19:23:04 by avg38            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_strcmp(char *s1, char *s2){
-    int i;
-    int c1; 
-    int c2; 
-    c1 = 0;
-    c2 = 0; 
-    i = 0;
-    while (s1[i]!='\0'){
-        c1 = s1[i] + c1;
-        c2 = s2[i] + c2;
-        i++;
-    }
-    return c1-c2;
-}
+int	ft_strcmp(char *s1, char *s2)
+{
+	int	i;
 
-int main(){
-    char s1[100] = "ToTo";
-    char s2[100] = "toto";
-    int resultat = ft_strcmp(s1,s2);
-    printf("%d",resultat);
-    return 0;
+	i = 0;
+	while (s1[i] && s2[i] && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
